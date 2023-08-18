@@ -37,5 +37,3 @@ jobs:
           git add market-watch.csv
           git commit -m 'Data updated' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
-        env:
-          GITHUB_PAT: ${{ secrets.STOCK }}  # Required for pushing changes to the repository
