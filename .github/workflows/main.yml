@@ -31,17 +31,13 @@ jobs:
         run: Rscript -e 'source("premarket.R")'  
         
       - name: Commit results
+        env:
+          GITHUB_PAT: ${{ secrets.GBG }}  # Required for pushing changes to the repository
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add market-watch.csv
           git commit -m 'Data updated' || echo "No changes to commit"
-          git push origin || echo "No changes to commit"
-        env:
-          GITHUB_PAT: ${{ secrets.GBG }}  # Required for pushing changes to the repository
-
-      - name: push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main 
+          git push -u origin HEAD:${{ github.ref }} || echo "Error in Push"
+        
+   
