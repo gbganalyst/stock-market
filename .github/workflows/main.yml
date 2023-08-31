@@ -1,9 +1,8 @@
 name: Daily R Script Execution
 
 on:
-  push:
-    branches:
-      - main  # Change this to the main branch name
+  schedule:
+  - cron: '0 12-23/2 * * *'  # Schedule to run every 2 hours from 12pm to 11pm UTC
 
 jobs:
   import-data:
@@ -34,7 +33,7 @@ jobs:
         env:
           GITHUB_PAT: ${{ secrets.GBG }}  # Required for pushing changes to the repository
         run: |
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git config user.email "${{ github.actor }}"
           git config user.name "{{ github.actor }}"
           git add market-watch.csv
           git commit -m 'Data updated' || echo "No changes to commit"

@@ -13,7 +13,7 @@ closed_price <- function(stock) {
   }
 
 
-stocks <- c("tsla", "meta", "pltr", "shop", "soun", "nvda", "nflx", "gtlb", "googl", "amzn", "msft", "arkk", "zm", "snow", "amd", "smci")
+stocks <- c("tsla", "meta", "pltr", "shop", "soun", "nvda", "nflx", "gtlb", "googl", "amzn", "msft", "arkk", "zm", "snow", "amd", "smci", "crwd")
 
 premarket_price <- map_chr(stocks, premkt_price) %>%
     parse_number()
