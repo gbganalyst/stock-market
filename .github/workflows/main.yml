@@ -34,8 +34,8 @@ jobs:
         env:
           GITHUB_PAT: ${{ secrets.GBG }}  # Required for pushing changes to the repository
         run: |
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git config user.name "{{ github.actor }}"
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git add market-watch.csv
-          git commit -am 'Re-run scrape_nepse_data.R' || echo "No changes to commit"
-          git push -u origin HEAD:${{ github.ref }} || echo "Error in Push"
+          git commit -m 'Data updated' || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
