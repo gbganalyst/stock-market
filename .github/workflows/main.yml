@@ -21,10 +21,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ hashFiles('**/renv.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-r-
-
+          key:  r-${{ hashFiles('**/renv.lock') }}
+          
       - name: Install packages
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
