@@ -1,14 +1,12 @@
 name: Hourly R Script Execution
 
-
 on:
   push:
     branches:
      - main
 
   schedule:
-    - cron: '0 12-21/1 * * *'  # Schedule to run every 1 hour from 12pm to 9pm UTC
-
+    - cron: '0 12-21/1 * * 1-5'  # Schedule to run every 1 hour from 12pm to 9pm UTC, Monday to Friday
 jobs:
   import-data:
     runs-on: ubuntu-latest
