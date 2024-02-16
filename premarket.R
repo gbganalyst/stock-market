@@ -12,7 +12,7 @@ closed_price <- function(stock) {
     scrap(glue("https://www.marketwatch.com/investing/stock/{stock}?mod=search_symbol"), node = ".u-semi")[1]
   }
 
-ticker <- c("aapl", "tsla", "meta", "achr", "joby", "rklb", "shop", "soun", "phun", "nvda", "smci", "nflx", "gtlb", "googl", "amzn", "pltr", "msft", "orcl", "arkk", "snow", "amd", "crm", "crwd", "path", "twlo", "baba", "adbe") 
+ticker <- c("aapl", "tsla", "uber", "meta", "achr", "joby", "rklb", "amzn", "shop", "soun", "phun", "mvst", "nvda", "smci", "arm", "apld",  "nflx", "gtlb", "powl", "googl", "pltr", "msft", "orcl", "arkk", "snow", "amd", "crm", "crwd", "path", "twlo", "adbe") 
 
 premarket_price <- map_chr(ticker, premkt_price) %>%
     parse_number()
